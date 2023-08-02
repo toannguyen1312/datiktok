@@ -1,0 +1,40 @@
+@import 'normalize-css';
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+
+// đặt biến
+:root {
+    --primary: #fe2c55;
+    --defauly-layout-header-height: 60px;
+    --text-color: #333;
+
+    --defauly-layout-width: 1150px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// size là 10px
+html {
+    font-size: 62.5%;
+}
+// 10*1.6= 16px
+body {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+}
+
+button,
+input [tabindex] {
+    outline: none;
+    border: none;
+}
+
+a[href] {
+    color: var(--text-color);
+    text-decoration: none;
+}
