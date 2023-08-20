@@ -17,6 +17,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 var(--defauly-layout-horizontal-spacer);
+}
+
+.search-result {
+    width: 361px;
 }
 
 .search {
@@ -60,6 +65,11 @@
     }
 }
 
+.search-title {
+    color: rgba(22, 24, 35, 0.5);
+    padding: 5px 12px;
+}
+
 .clear,
 .loading {
     position: absolute;
@@ -85,4 +95,36 @@
     &:active {
         background-color: rgba(22, 24, 35, 0.06);
     }
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+}
+
+.more-btn {
+    font-size: 2rem;
+    margin-left: 24px;
+    background: transparent;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.action-btn {
+    background-color: transparent;
+    font-size: 2.2rem;
+    padding: 4px 12px;
+    cursor: pointer;
+}
+
+// avatar login
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    // dùng khi có hình ảnh
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 12px;
+    cursor: pointer;
 }
