@@ -57,6 +57,22 @@
     transform: translateY(-50%);
     color: rgba(22, 24, 35, 0.34);
 }
+//  linear quay đều ,  infinite quay vô hạn
+.loading {
+    animation: spinner 1s, linear infinite;
+}
+
+// translateY(-50%) tại vì bên trên dùng rồi nên dưới bị ghi đè
+@keyframes spinner {
+    // điểm bắt đầu
+    from {
+        transform: translateY(-50%) rotate(0deg);
+    }
+    // điểm kết thúc
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
 
 .search-btn {
     width: var(--search-button-width);

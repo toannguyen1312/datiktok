@@ -6,7 +6,7 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Layout/Poppers';
 
 // icon
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { SearchIcon } from '~/components/Icons';
 import AccountItem from '~/components/AccountItem';
 
@@ -16,17 +16,34 @@ import { useEffect, useRef, useState } from 'react';
 const cx = classNames.bind(styles);
 
 function Search() {
+    // chưa thông tin nhập input
     const [searchValue, setSearchValue] = useState('');
+
+    // chưa thông tin nhập input
     const [searchResult, setSearchResult] = useState([]);
 
     // có đang focus thẻ input hay không hoặc boler ra ngoài hay không
     const [showResult, setShowResult] = useState(true);
 
+    // loading quay quay
+
+    const [loading, setLoading] = useState(false);
+
     useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([1, 2]);
-        }, 0);
-    }, []);
+        if (!searchValue.trim()) {
+            setSearchResult([]);
+            return;
+        }
+
+        setLoading(true);
+        // encodeURIComponent mã hóa thành url để tránh nhập query key=value vd như &?
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+            .then((res) => res.json())
+            .then((res) => {
+                setSearchResult(res.data);
+                setLoading(false);
+            });
+    }, [searchValue]);
 
     const handleClear = () => {
         setSearchValue(' ');
@@ -49,9 +66,9 @@ function Search() {
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
                         <em className={cx('search-title')}>Accounts</em>
-
-                        <AccountItem />
-                        <AccountItem />
+                        {searchResult.map((result) => (
+                            <AccountItem key={result.id} data={result} />
+                        ))}
                     </PopperWrapper>
                 </div>
             )}
@@ -69,14 +86,12 @@ function Search() {
                     onFocus={() => setShowResult(true)}
                 />
                 {/* nghĩa là khi có searchVlaue thì nó ms hiện icon */}
-                {!!searchValue && (
+                {!!searchValue && !loading && (
                     <button className={cx('clear')} onClick={handleClear}>
                         <FontAwesomeIcon icon={faCircleXmark} />
                     </button>
                 )}
-
-                {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
-
+                {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
                 <button className={cx('search-btn')}>
                     <SearchIcon />
                 </button>
