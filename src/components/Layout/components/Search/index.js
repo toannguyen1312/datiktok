@@ -4,6 +4,7 @@ import styles from './Search.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Layout/Poppers';
+import { useDebounce } from '~/hooks';
 
 // icon
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
@@ -29,21 +30,24 @@ function Search() {
 
     const [loading, setLoading] = useState(false);
 
+    // fix gửi nhiều api cùng 1 lúc
+    const debounce = useDebounce(searchValue, 500);
+
     useEffect(() => {
-        if (!searchValue.trim()) {
+        if (!debounce.trim()) {
             setSearchResult([]);
             return;
         }
 
         setLoading(true);
         // encodeURIComponent mã hóa thành url để tránh nhập query key=value vd như &?
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`)
             .then((res) => res.json())
             .then((res) => {
                 setSearchResult(res.data);
                 setLoading(false);
             });
-    }, [searchValue]);
+    }, [debounce]);
 
     const handleClear = () => {
         setSearchValue(' ');
