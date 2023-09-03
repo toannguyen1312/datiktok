@@ -69,6 +69,17 @@ function Search() {
         setShowResult(false);
     };
 
+    // bắt sự kiện ko nhập dấu cách đầu
+
+    const handleValue = (e) => {
+        const searchValue = e.target.value;
+
+        if (searchValue.startsWith(' ') && !searchValue.trim()) {
+            return;
+        }
+        setSearchValue(searchValue);
+    };
+
     return (
         <HeadlessTippy
             // dùng để secletor nội dụng bên trong
@@ -94,7 +105,7 @@ function Search() {
                     value={searchValue}
                     placeholder="Search accouts and videos"
                     spellCheck={false}
-                    onChange={(e) => setSearchValue(e.target.value)}
+                    onChange={handleValue}
                     onFocus={() => setShowResult(true)}
                 />
                 {/* nghĩa là khi có searchVlaue thì nó ms hiện icon */}

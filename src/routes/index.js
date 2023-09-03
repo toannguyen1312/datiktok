@@ -3,28 +3,31 @@ import Home from '~/pages/Home';
 import Following from '~/pages/Following';
 import Upload from '~/pages/Upload';
 import Profile from '~/pages/Profile';
+
+// routes config
+import config from '~/config/routes';
 // Layouts
 import { HeaderOnly } from '~/components/Layout';
 
 // không cần đăng nhập vẫn thấy đc
 const publicRoutes = [
     {
-        path: '/',
+        path: config.home,
         component: Home,
     },
 
     {
-        path: '/following',
+        path: config.following,
         component: Following,
     },
 
     {
-        path: '/@/:nickname',
+        path: config.profile,
         component: Profile,
     },
 
     {
-        path: '/upload',
+        path: config.upload,
         component: Upload,
         layout: HeaderOnly,
     },

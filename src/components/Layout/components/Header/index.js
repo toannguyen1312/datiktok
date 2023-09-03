@@ -8,6 +8,9 @@ import Menu from '~/components/Layout/Poppers/Menu';
 import Image from '~/components/Image';
 import Search from '../Search';
 
+// config
+import config from '~/config/routes';
+
 // thư viện tippy
 // import Tippy from '@tippyjs/react';
 // bậc ra thư viện tìm kiếm
@@ -15,6 +18,8 @@ import Tippy from '@tippyjs/react';
 
 // css thư viện tippy
 import 'tippy.js/dist/tippy.css';
+
+import { Link } from 'react-router-dom';
 
 // icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -111,7 +116,10 @@ function Header() {
             <div className={cx('inner')}>
                 {/* header logo tiktok */}
                 <div className={cx('logo')}>
-                    <img src={images.logo} />
+                    <Link to={config.home} className={cx('logo-link')}>
+                        {' '}
+                        <img src={images.logo} />{' '}
+                    </Link>
                 </div>
 
                 {/*search header input */}

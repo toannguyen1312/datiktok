@@ -13,7 +13,7 @@ const cx = classNames.bind(styles);
 // cách giải quyết tạm thời nếu ko chuyền onchange từ ngoài vào
 const defaultFn = () => {};
 
-function Menu({ children, items = [], onChange = defaultFn }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn }) {
     const [history, setHistory] = useState([{ data: items }]);
 
     const current = history[history.length - 1];
@@ -47,6 +47,9 @@ function Menu({ children, items = [], onChange = defaultFn }) {
             // dùng để ẩn hiện tippy
             // visible
             delay={[0, 700]}
+            // bỏ hành vi click vào avatar ảnh tippy
+
+            hideOnClick={hideOnClick}
             placement="bottom-end"
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>

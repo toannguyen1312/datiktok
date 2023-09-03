@@ -75,6 +75,9 @@
 }
 
 .search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: var(--search-button-width);
     height: 100%;
     border-bottom-right-radius: var(--search-border-rediur);
@@ -83,7 +86,8 @@
     color: rgba(22, 24, 35, 0.34);
     &:hover {
         cursor: pointer;
-        background-color: rgba(22, 24, 35, 0.03);
+        background-color: rgba(6, 6, 8, 0.03);
+        color: var(--text-color);
     }
 
     &:active {

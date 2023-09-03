@@ -23,6 +23,10 @@
     padding: 0 var(--defauly-layout-horizontal-spacer);
 }
 
+.logo-link {
+    display: flex;
+}
+
 .actions {
     display: flex;
     align-items: center;
