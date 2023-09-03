@@ -14,6 +14,8 @@ import AccountItem from '~/components/AccountItem';
 // hooks
 import { useEffect, useRef, useState } from 'react';
 
+// thư viện Axios dùng để gọi API
+import * as searchServices from '~/apiServices/searchServices';
 const cx = classNames.bind(styles);
 
 function Search() {
@@ -39,14 +41,20 @@ function Search() {
             return;
         }
 
-        setLoading(true);
         // encodeURIComponent mã hóa thành url để tránh nhập query key=value vd như &?
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`)
-            .then((res) => res.json())
-            .then((res) => {
-                setSearchResult(res.data);
-                setLoading(false);
-            });
+        // request sẽ nói chuổi của API
+        // cấu hình Api gửi dữ liệu và nhận dữ liệu
+        const fetchApi = async () => {
+            setLoading(true);
+
+            const result = await searchServices.search(debounce);
+
+            setSearchResult(result);
+
+            setLoading(false);
+        };
+
+        fetchApi();
     }, [debounce]);
 
     const handleClear = () => {
