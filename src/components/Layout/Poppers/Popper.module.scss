@@ -6,4 +6,9 @@
     max-height: min((100vh - 96px) - 60px, 734px);
     // cho vượt quá chiều cao màng hình
     min-height: 100px;
+    padding-top: 8px;
+
+    // thanh cuộn
+    display: flex;
+    flex-direction: column;
 }

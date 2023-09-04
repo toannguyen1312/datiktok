@@ -163,7 +163,7 @@ function Header() {
                             <Image
                                 className={cx('user-avatar')}
                                 alt="nguyễn việt toàn"
-                                src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/b4bdd4a97d253f9943835bed98f2ce17~c5_100x100.jpeg?x-expires=1692597600&x-signature=Ahp4d%2Frwagwqus4LUdkgWBroMls%3D"
+                                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/457aa8bb1f2f9a24881911593e2fa04c.jpeg?x-expires=1693990800&x-signature=kjuDpPJ3qBLWF46xjvzc%2FQhnz%2Fs%3D"
                             />
                         ) : (
                             <button className={cx('more-btn')}>

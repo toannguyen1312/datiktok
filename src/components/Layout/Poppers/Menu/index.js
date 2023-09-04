@@ -45,7 +45,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
             // vị trí
             offset={[12, 8]}
             // dùng để ẩn hiện tippy
-            // visible
+            // visible={true}
             delay={[0, 700]}
             // bỏ hành vi click vào avatar ảnh tippy
 
@@ -62,7 +62,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-body')}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}

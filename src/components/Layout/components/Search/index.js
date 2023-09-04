@@ -81,45 +81,50 @@ function Search() {
     };
 
     return (
-        <HeadlessTippy
-            // dùng để secletor nội dụng bên trong
-            interactive
-            visible={showResult && searchResult.length > 0}
-            render={(attrs) => (
-                <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper>
-                        <em className={cx('search-title')}>Accounts</em>
-                        {searchResult.map((result) => (
-                            <AccountItem key={result.id} data={result} />
-                        ))}
-                    </PopperWrapper>
-                </div>
-            )}
-            // có nghĩ là bấm ra ngoài tippy
-            onClickOutside={handleHideResult}
-        >
-            {/* header search input */}
-            <div className={cx('search')}>
-                <input
-                    ref={inputRef}
-                    value={searchValue}
-                    placeholder="Search accouts and videos"
-                    spellCheck={false}
-                    onChange={handleValue}
-                    onFocus={() => setShowResult(true)}
-                />
-                {/* nghĩa là khi có searchVlaue thì nó ms hiện icon */}
-                {!!searchValue && !loading && (
-                    <button className={cx('clear')} onClick={handleClear}>
-                        <FontAwesomeIcon icon={faCircleXmark} />
-                    </button>
+        // thẻ div fix warning tippy
+        <div>
+            <HeadlessTippy
+                // fix warning tippy
+                // appendTo={() => document.body}
+                // dùng để secletor nội dụng bên trong
+                interactive
+                visible={showResult && searchResult.length > 0}
+                render={(attrs) => (
+                    <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                        <PopperWrapper>
+                            <em className={cx('search-title')}>Accounts</em>
+                            {searchResult.map((result) => (
+                                <AccountItem key={result.id} data={result} />
+                            ))}
+                        </PopperWrapper>
+                    </div>
                 )}
-                {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-                <button className={cx('search-btn')}>
-                    <SearchIcon />
-                </button>
-            </div>
-        </HeadlessTippy>
+                // có nghĩ là bấm ra ngoài tippy
+                onClickOutside={handleHideResult}
+            >
+                {/* header search input */}
+                <div className={cx('search')}>
+                    <input
+                        ref={inputRef}
+                        value={searchValue}
+                        placeholder="Search accouts and videos"
+                        spellCheck={false}
+                        onChange={handleValue}
+                        onFocus={() => setShowResult(true)}
+                    />
+                    {/* nghĩa là khi có searchVlaue thì nó ms hiện icon */}
+                    {!!searchValue && !loading && (
+                        <button className={cx('clear')} onClick={handleClear}>
+                            <FontAwesomeIcon icon={faCircleXmark} />
+                        </button>
+                    )}
+                    {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
+                    <button className={cx('search-btn')}>
+                        <SearchIcon />
+                    </button>
+                </div>
+            </HeadlessTippy>
+        </div>
     );
 }
 
