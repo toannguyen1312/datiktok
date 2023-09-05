@@ -1,6 +1,9 @@
 import classNames from 'classnames/bind';
 import styles from './Button.module.scss';
 
+// kiểu tra kiểu dữ liệu props children
+import PropTypes from 'prop-types';
+
 import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
@@ -57,5 +60,9 @@ function Button({
         </Comp>
     );
 }
+// kiểm tra kiểu dữ liệu children là những thứ mà ccos thể render đc, ko đc undifine
+Button.protoTypes = {
+    children: PropTypes.node.isRequired,
+};
 
 export default Button;
