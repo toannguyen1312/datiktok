@@ -3,7 +3,7 @@ import styles from './Search.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
-import { Wrapper as PopperWrapper } from '~/components/Layout/Poppers';
+import { Wrapper as PopperWrapper } from '~/layouts/Poppers';
 import { useDebounce } from '~/hooks';
 
 // icon
@@ -15,7 +15,7 @@ import AccountItem from '~/components/AccountItem';
 import { useEffect, useRef, useState } from 'react';
 
 // thư viện Axios dùng để gọi API
-import * as searchServices from '~/apiServices/searchServices';
+import * as searchServices from '~/services/searchService';
 const cx = classNames.bind(styles);
 
 function Search() {

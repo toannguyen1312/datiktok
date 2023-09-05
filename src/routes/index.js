@@ -5,29 +5,29 @@ import Upload from '~/pages/Upload';
 import Profile from '~/pages/Profile';
 
 // routes config
-import config from '~/config/routes';
+import config from '~/config';
 // Layouts
-import { HeaderOnly } from '~/components/Layout';
+import { HeaderOnly } from '~/layouts';
 
 // không cần đăng nhập vẫn thấy đc
 const publicRoutes = [
     {
-        path: config.home,
+        path: config.routes.home,
         component: Home,
     },
 
     {
-        path: config.following,
+        path: config.routes.following,
         component: Following,
     },
 
     {
-        path: config.profile,
+        path: config.routes.profile,
         component: Profile,
     },
 
     {
-        path: config.upload,
+        path: config.routes.upload,
         component: Upload,
         layout: HeaderOnly,
     },

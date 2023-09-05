@@ -1,5 +1,5 @@
 // di chuyển giữa các trang vẫn giữ nguyên
-import Header from '~/components/Layout/components/Header';
+import Header from '~/layouts/components/Header';
 
 function HeaderOnly({ children }) {
     return (

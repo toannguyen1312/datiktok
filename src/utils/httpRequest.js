@@ -2,7 +2,8 @@ import axios from 'axios';
 
 // cấu hình Api  Creating an instance
 const request = axios.create({
-    baseURL: 'https://tiktok.fullstack.edu.vn/api/',
+    // start lại sẽ đc webpark tải lại biến môi trường
+    baseURL: process.env.REACT_APP_BASE_URL,
 });
 
 // async hàm này sẽ trả về 1 promise
