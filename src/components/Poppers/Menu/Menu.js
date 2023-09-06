@@ -55,7 +55,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
         </div>
     );
     // reset to first page
-    const handleResetMenu = () => {
+    const handleReset = () => {
         setHistory((prev) => prev.slice(0, 1));
     };
     return (
@@ -73,7 +73,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
             placement="bottom-end"
             render={renderResult}
             // được gọi khi bắt đầu ẩn
-            onHide={handleResetMenu}
+            onHide={handleReset}
         >
             {children}
         </Tippy>
