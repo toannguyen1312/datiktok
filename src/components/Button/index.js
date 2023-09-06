@@ -62,7 +62,20 @@ function Button({
 }
 // kiểm tra kiểu dữ liệu children là những thứ mà ccos thể render đc, ko đc undifine
 Button.protoTypes = {
+    to: PropTypes.string,
+    href: PropTypes.string,
+    primary: PropTypes.bool,
+    outline: PropTypes.bool,
+    small: PropTypes.bool,
+    large: PropTypes.bool,
+    text: PropTypes.bool,
+    disabled: PropTypes.bool,
+    rounded: PropTypes.bool,
     children: PropTypes.node.isRequired,
+    leftIcon: PropTypes.node,
+    rightIcon: PropTypes.node,
+    className: PropTypes.string,
+    onClick: PropTypes.func,
 };
 
 export default Button;

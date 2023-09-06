@@ -1,5 +1,7 @@
 import classNames from 'classnames/bind';
 
+// kiểm tra kiểu dữ liệu props
+
 // kiểm tra kiểu dữ liệu của props components
 import PropTypes from 'prop-types';
 
@@ -27,7 +29,7 @@ function AccountItem({ data }) {
 }
 
 AccountItem.propTypes = {
-    data: PropTypes.object,
+    data: PropTypes.object.isRequired,
 };
 
 export default AccountItem;

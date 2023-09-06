@@ -4,6 +4,9 @@ import Header from '~/layouts/components/Header';
 import Sidebar from './Sidebar';
 import styles from './DefaultLayout.module.scss';
 
+// kiểm tra kiểu dữ liệu props elements
+import PropTypes from 'prop-types';
+
 const cx = classNames.bind(styles);
 
 function DefauleLayout({ children }) {
@@ -21,5 +24,9 @@ function DefauleLayout({ children }) {
         </div>
     );
 }
+
+DefauleLayout.propTypes = {
+    children: PropTypes.node.isRequired,
+};
 
 export default DefauleLayout;

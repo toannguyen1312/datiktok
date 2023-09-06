@@ -3,6 +3,9 @@ import images from '~/assets/images';
 import classNames from 'classnames';
 import styles from './Image.module.scss';
 
+// kiểm tra kiểu dữ liệu props enlement
+import PropTypes from 'prop-types';
+
 const Image = forwardRef(({ alt, src, className, ...props }, ref) => {
     const [fallback, setFallback] = useState('');
 
@@ -21,5 +24,11 @@ const Image = forwardRef(({ alt, src, className, ...props }, ref) => {
         />
     );
 });
+
+Image.propTypes = {
+    alt: PropTypes.string,
+    src: PropTypes.string,
+    className: PropTypes.string,
+};
 
 export default Image;

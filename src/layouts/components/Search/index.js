@@ -3,7 +3,7 @@ import styles from './Search.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
-import { Wrapper as PopperWrapper } from '~/layouts/Poppers';
+import { Wrapper as PopperWrapper } from '~/components/Poppers';
 import { useDebounce } from '~/hooks';
 
 // icon

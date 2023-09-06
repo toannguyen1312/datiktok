@@ -4,6 +4,9 @@ import styles from './Menu.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
+// kiểm tra kiểu dữ liệu props elements
+import PropTypes from 'prop-types';
+
 const cx = classNames.bind(styles);
 
 function Header({ title, onBack }) {
@@ -17,4 +20,9 @@ function Header({ title, onBack }) {
         </header>
     );
 }
+
+Header.protoTypes = {
+    title: PropTypes.string.isRequired,
+    onBack: PropTypes.func.isRequired,
+};
 export default Header;
