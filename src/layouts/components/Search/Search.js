@@ -26,17 +26,17 @@ function Search() {
     const [searchResult, setSearchResult] = useState([]);
 
     // có đang focus thẻ input hay không hoặc boler ra ngoài hay không
-    const [showResult, setShowResult] = useState(true);
+    const [showResult, setShowResult] = useState(false);
 
     // loading quay quay
 
     const [loading, setLoading] = useState(false);
 
     // fix gửi nhiều api cùng 1 lúc
-    const debounce = useDebounce(searchValue, 500);
+    const debounceValue = useDebounce(searchValue, 500);
 
     useEffect(() => {
-        if (!debounce.trim()) {
+        if (!debounceValue.trim()) {
             setSearchResult([]);
             return;
         }
@@ -47,7 +47,7 @@ function Search() {
         const fetchApi = async () => {
             setLoading(true);
 
-            const result = await searchServices.search(debounce);
+            const result = await searchServices.search(debounceValue);
 
             setSearchResult(result);
 
@@ -55,7 +55,7 @@ function Search() {
         };
 
         fetchApi();
-    }, [debounce]);
+    }, [debounceValue]);
 
     const handleClear = () => {
         setSearchValue(' ');
