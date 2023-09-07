@@ -5,7 +5,7 @@ import images from '~/assets/images';
 
 import Button from '~/components/Button';
 import Menu from '~/components/Poppers/Menu';
-import Image from '~/components/Image/Image';
+import Image from '~/components/Image';
 import Search from '~/layouts/components/Search';
 
 // config
