@@ -33,7 +33,7 @@ function Sidebar() {
             </Menu>
 
             <SuggestedAccounts lable="Suggested accounts" />
-
+            <SuggestedAccounts lable="Follwing  accounts" />
             <p className={cx('more-btn')}>See all</p>
         </aside>
     );

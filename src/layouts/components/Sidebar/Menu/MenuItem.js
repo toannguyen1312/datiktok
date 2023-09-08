@@ -1,4 +1,3 @@
-import Menu from './Menu';
 // hổ trợ chuyển màu Link
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
